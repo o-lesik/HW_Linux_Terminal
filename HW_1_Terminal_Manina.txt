@@ -1,0 +1,113 @@
+Homework #1
+Group 27
+Linux terminal commands
+Manina Olesya
+
+Использую Terminal на MacOS
+
+
+1) Посмотреть, где я
+ Pwd
+
+2) Создать папку 
+mkdir group_27.1
+
+3) Зайти в папку 
+cd group_27.1
+
+4) Создать 3 папки 
+mkdir lesya_1 lesya_2 lesya_3
+
+5) Зайти в любую папку
+cd lesya_1
+
+6) Создать 5 файлов (3 txt, 2 json) 
+touch file_1.txt file_2.txt file_3.txt file_4.json file_5.json
+
+7) Создать 3 папки 
+mkdir papka_1 papka_2 papka_3
+
+8) Вывести список содержимого папки
+ls -la
+
+9) Открыть любой txt файл
+vim file_1.txt
+
+10) + Написать туда что-нибудь, любой текст.
+i и вводим:
+
+Сжала руки под темной вуалью...
+"Отчего ты сегодня бледна?"
+- Оттого, что я терпкой печалью
+Напоила его допьяна.
+
+Как забуду? Он вышел, шатаясь,
+Искривился мучительно рот...
+Я сбежала, перил не касаясь,
+Я бежала за ним до ворот.
+
+Задыхаясь, я крикнула: "Шутка
+Все, что было. Уйдешь, я умру".
+Улыбнулся спокойно и жутко
+И сказал мне: "Не стой на ветру".
+
+Анна Ахматова
+
+11) + Сохранить и выйти.
+Escape + :wq 
+
+12) Выйти из папки на уровень выше
+cd ..
+
+13) Переместить любые 2 файла, которые вы создали, в любую другую папку.
+mv lesya_1/{file_1.txt,file_2.txt} lesya_1/papka_2
+
+
+14) Скопировать любые 2 файла, которые вы создали, в любую другую папку
+cp lesya_1/papka_2/{file_1.txt,file_2.txt} lesya_2
+
+15) Найти файл по имени
+find / -name "file_2*"
+
+16) Просмотреть содержимое в реальном времени (команда grep) изучите как она работает
+tail -F lesya_2/file_1.txt | grep сегодня 
+
+17) Вывести несколько первых строк из текстового файла
+head -n 5 lesya_2/file_1.txt
+
+18) Вывести несколько последних строк из текстового файла
+tail -n 5 lesya_2/file_1.txt
+
+19) Просмотреть содержимое длинного файла (команда less) изучите как она работает
+less lesya_2/file_1.txt
+
+20) Вывести дату и время
+date
+
+=========
+
+Задание *
+1) Отправить http запрос на сервер http://162.55.220.72:5005/terminal-hw-request
+curl http://162.55.220.72:5005/terminal-hw-request
+
+1а) {"Intro":"Hello!! This is your the first response from server","Tasks":{"Task_1":"Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)","result":["Your_String","Your_number"]}}
+
+curl "http://162.55.220.72:5005/get_method?name=lesya&age=25"
+
+2) Написать скрипт, который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+touch hw_1_script.sh
+chmod +x hw_1_script.sh
+vim hw_1_script.sh
+i и вводим:
+
+#!/bin/bash
+cd group_27.1
+mkdir lesya_1 lesya_2 lesya_3
+cd lesya_1
+touch file_1.txt file_2.txt file_3.txt file_4.json file_5.json
+mkdir papka_1 papka_2 papka_3
+ls -la
+mv {file_1.txt,file_2.txt} papka_2
+
+Escape + :wq 
+./hw_1_script.sh
